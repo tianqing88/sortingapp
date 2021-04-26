@@ -12,5 +12,5 @@ These instructions will get you a copy of the project up and running on your loc
 ## Running the tests
 
 - Place testing files in SortingApp.Tests/Files folder 
-- Name the text files as ```input```: before sorted set of names and  ```result```: after sorted set of names
+- Name the text files as ```unsorted-names-list```: before sorted set of names and  ```sorted-names-list```: after sorted set of names
 - Run Unit Test 

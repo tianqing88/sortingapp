@@ -20,9 +20,9 @@ namespace Tests
             NameSorter nameSorter = new NameSorter();
 
             //original text file path
-            string unsortedFile = "..\\..\\..\\Files\\input.txt";
+            string unsortedFile = "..\\..\\..\\Files\\unsorted-names-list.txt";
             //after sorted text file path
-            string sortedFile = "..\\..\\..\\Files\\result.txt";
+            string sortedFile = "..\\..\\..\\Files\\sorted-names-list.txt";
 
             List<string> list = fileReader.ReadFileAsStringList(unsortedFile);
             List<string> unsortedList = nameSorter.ReverseName(list).Select(o => o.Trim()).ToList();

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace SortingApp
 {
@@ -22,11 +23,8 @@ namespace SortingApp
             #endregion
 
             #region Main Code
-            //Type file name
-            Console.WriteLine("Enter file name:");
             //Store file name 
-            string fileName = Console.ReadLine();
-            string filePath = filePathSettings.BasePath + fileName + ".txt";
+            string filePath = filePathSettings.BasePath + "unsorted-names-list.txt";
 
             //Init FileReader class
             FileReader fileReader = new FileReader();
@@ -48,11 +46,14 @@ namespace SortingApp
                 List<string> resultList = nameSorter.ReverseName(unsortedList);
 
                 Console.WriteLine("The sorted name list:");
-
                 foreach (string s in resultList)
                 {
                     Console.WriteLine(s);
                 }
+
+                //Write list to the file
+                string path = filePathSettings.BasePath + "sorted-names-list.txt";
+                File.WriteAllLines(path, resultList, Encoding.UTF8);
             }            
             #endregion
         }
