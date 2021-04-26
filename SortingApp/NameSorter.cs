@@ -7,16 +7,10 @@ namespace SortingApp
 {
     public class NameSorter
     {
-        public List<string> ReverseName(string filePath)
+        public List<string> ReverseName(List<string> unsortedList)
         {
-            //Init FileReader class
-            FileReader fileReader = new FileReader();
-
-            //Get content string list from file
-            List<string> inputList = fileReader.ReadFileAsStringList(filePath);
-
             //Sort the list by first Alphabet
-            List<string> resultList = inputList.OrderBy(o => o.Trim().Split(" ").Last()).ToList();
+            List<string> resultList = unsortedList.OrderBy(o => o.Trim().Split(" ").Last()).ToList();
 
             return resultList;
         }

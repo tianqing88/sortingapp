@@ -28,16 +28,32 @@ namespace SortingApp
             string fileName = Console.ReadLine();
             string filePath = filePathSettings.BasePath + fileName + ".txt";
 
-            //Get sorted result
-            NameSorter nameSorter = new NameSorter();
-            List<string> resultList = nameSorter.ReverseName(filePath);
+            //Init FileReader class
+            FileReader fileReader = new FileReader();
 
-            Console.WriteLine("The sorted name list:");
+            //Get unsorted string list from file
+            List<string> unsortedList = fileReader.ReadFileAsStringList(filePath);
 
-            foreach (string s in resultList)
+            //Init validator
+            Validator validator = new Validator();
+
+            if (!validator.IsValidName(unsortedList))
             {
-                Console.WriteLine(s);
+                Console.WriteLine("The file contains invalid name");
             }
+            else
+            {
+                //Get sorted result
+                NameSorter nameSorter = new NameSorter();
+                List<string> resultList = nameSorter.ReverseName(unsortedList);
+
+                Console.WriteLine("The sorted name list:");
+
+                foreach (string s in resultList)
+                {
+                    Console.WriteLine(s);
+                }
+            }            
             #endregion
         }
     }
